@@ -21,11 +21,17 @@ jobs:
     displayName: 'Run a multi-line script'
 
 - job: JobB
+  dependsOn: JobA
   steps:
   - script: echo Job2 -Hello
     displayName: 'Run a one-line script'
 
-  - script: |
-      echo  Job2 Add other tasks to build, test, and deploy your project.
-      echo See https://aka.ms/yaml
-    displayName: 'Run a multi-line script'
+- job: JobC
+  dependsOn: 
+  - JobA
+  - JobB
+  steps:
+  - script: echo Job2 -Hello
+    displayName: 'Run a one-line script'
+
+
