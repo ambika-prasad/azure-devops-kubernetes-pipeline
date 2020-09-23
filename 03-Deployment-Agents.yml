@@ -13,4 +13,4 @@ stages:
       runOnce:
         deploy:
           steps:
-            - script: echo deploy in Dev
+            - script: echo deploy in Dev after approval
