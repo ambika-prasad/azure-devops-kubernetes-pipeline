@@ -1,16 +1,12 @@
 trigger:
 - master
 
-strategy:
-  matrix:
-    linux:
-      operatingSystem: 'ubuntu-latest'
-    mac:
-      operatingSystem: 'macos-latest'
-
 pool:
-  vmImage: $(operatingSystem)
+  vmImage: 'ubuntu-latest'
 
-steps:
-- script: echo Operating on Agent $(operatingSystem)
-  displayName: 'Run a one-line script'
+stages:
+- stage: Build 
+  jobs:
+  - job: Buildjob
+    steps:
+    - bash: echo 'Need Approval'
