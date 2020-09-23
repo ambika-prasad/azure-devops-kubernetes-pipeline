@@ -7,6 +7,10 @@ pool:
 stages:
 - stage: Build 
   jobs:
-  - job: Buildjob
-    steps:
-    - bash: echo 'Need Approval'
+  - deployment: Buildjob
+    environment: Dev
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+            - script: echo deploy in Dev
